@@ -3,7 +3,7 @@
 Fork and clone this repo. On your fork, answer and commit the follow questions. When you are finished, submit the link to your repo on Canvas.
 
 
-## Question 1
+## Question 1 √
 
 `var userName: String?`
 
@@ -38,7 +38,7 @@ print(uName)
 ```
 
 
-## Question 2
+## Question 2 √
 
 Given optional string `backgroundColor`, write code that safely unwraps and prints it. If backgroundColor is nil, give it a value.
 
@@ -53,7 +53,7 @@ print(bgColor)
 
 ```
 
-## Question 3
+## Question 3 √
 
 Given an optional width and an optional height of a rectangle, write code that calculates and prints the area. Print an error message if either value is nil.
 
@@ -74,7 +74,7 @@ if let w = width, let h = height {
 ```
 
 
-## Question 4
+## Question 4 √
 
 Given the following optional variables `name`, `age` and `height`. Write code so that it prints `name`, `age` and `height` if they all have a value. If any are nil, print an error message. Try using optional binding.
 
@@ -91,7 +91,7 @@ if let n = name, let a = age, let h = height {
 ```
 
 
-## Question 5
+## Question 5 √
 
 Given the variables `firstName`, `middleName` and `lastName`. Create a variable called `fullName` that is a nicely formatted string.
 
@@ -99,15 +99,33 @@ Given the variables `firstName`, `middleName` and `lastName`. Create a variable 
 var firstName: String = "Johnny"
 var middleName: String?
 var lastName: String = "Stone"
+
+middleName = "Vicious"
+
+if let m = middleName {
+    let fullName = String("\(firstName) \(m) \(lastName)")
+    print(fullName)
+} else {
+    print("Middle name required!")
+}
+
 ```
 
 
-## Question 6
+## Question 6 √
 
 Write code that adds 15 to `myIntString`, then prints the sum. Use the `Int()` constructor which returns an optional Int `(Int?)`.
 
 `let myIntString = "35"`
 
+```swift
+
+var myInt = Int(myIntString)
+if let newInt = myInt {
+    print(newInt + 15)
+}
+
+```
 
 ## Question 7
 
