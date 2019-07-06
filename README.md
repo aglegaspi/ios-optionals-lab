@@ -58,6 +58,7 @@ print(bgColor)
 Given an optional width and an optional height of a rectangle, write code that calculates and prints the area. Print an error message if either value is nil.
 
 ```swift
+
 var width: Double?
 var height: Double?
 
@@ -67,7 +68,7 @@ height = 5.00
 if let w = width, let h = height {
     print("The area is \(w * h)")
 } else {
-    print("need complete input")
+    print("need width and height to calculate area")
 }
 
 ```
@@ -81,6 +82,12 @@ Given the following optional variables `name`, `age` and `height`. Write code so
 var name: String?
 var age: Int?
 var height: Double?
+
+if let n = name, let a = age, let h = height {
+    print("\(n), \(a) and \(h)")
+} else {
+    print("error! name, age, height required!")
+}
 ```
 
 
