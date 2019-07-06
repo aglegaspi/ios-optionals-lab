@@ -127,7 +127,7 @@ if let newInt = myInt {
 
 ```
 
-## Question 7
+## Question 7  🤯
 
 Given an optional tuple of optional Ints, write code to safely unwrap the tuple and calculate the sum of its contents that aren't nil.
 
@@ -173,7 +173,7 @@ if Bool.random() {
 ```
 
 
-## Question 10
+## Question 10 √
 
 Write code that prints out the product of `myDouble` and `doubleTwo` or prints an error message if `myDouble` is nil.
 
@@ -182,12 +182,17 @@ var myDouble: Double?
 let doubleTwo: Double = 5
 
 if Bool.random() {
- myDouble = 12
+    myDouble = 12
+    if let myDouble = myDouble {
+        print(myDouble * doubleTwo)
+    }
+} else {
+    print("myDouble is nil-ly vanilli")
 }
 ```
 
 
-## Question 11
+## Question 11 √
 
 Determine if the variable contains a Boolean or nil value. If nil set the variable to false, else keep it true.
 
@@ -195,8 +200,17 @@ Determine if the variable contains a Boolean or nil value. If nil set the variab
 var isTheGreatest: Bool?
 
 if Bool.random() {
- isTheGreatest = true
+    isTheGreatest = true
+    if isTheGreatest == true {
+        print(true)
+    }
+} else {
+    isTheGreatest = false
+    if isTheGreatest == false {
+        print(false)
+    }
 }
+
 ```
 
 
