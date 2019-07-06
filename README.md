@@ -60,6 +60,16 @@ Given an optional width and an optional height of a rectangle, write code that c
 ```swift
 var width: Double?
 var height: Double?
+
+width = 7.00
+height = 5.00
+
+if let w = width, let h = height {
+    print("The area is \(w * h)")
+} else {
+    print("need complete input")
+}
+
 ```
 
 
