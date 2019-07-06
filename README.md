@@ -44,6 +44,14 @@ Given optional string `backgroundColor`, write code that safely unwraps and prin
 
 `var backgroundColor: String?`
 
+```swift
+
+var backgroundColor: String?
+
+let bgColor = backgroundColor ?? "new navy blue"
+print(bgColor)
+
+```
 
 ## Question 3
 
