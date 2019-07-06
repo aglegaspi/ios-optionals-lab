@@ -140,26 +140,35 @@ var testCaseThree = (5, 10, 24)
 ```
 
 
-## Question 8
+## Question 8 √
 
 Safely unwrap `tuple` if there’s a non-nil tuple value and print it out.
 
 ```swift
 var tuple: (Int, Int)?
+
 if Bool.random() {
- tuple = (5, 3)
+    tuple = (5, 3)
+    if let tuple = tuple {
+        print(tuple.0)
+        print(tuple.1)
+        }
 }
+
 ```
 
 
-## Question 9
+## Question 9 √
 
 Write code that either doubles `myInt` and then prints it, or prints an error message if myInt is nil.
 
 ```swift
 let myInt: Int?
 if Bool.random() {
- myInt = 5
+    myInt = 5
+    if let myInt = myInt {
+        print(myInt * myInt)
+    }
 }
 ```
 
