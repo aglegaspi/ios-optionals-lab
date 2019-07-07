@@ -14,6 +14,9 @@ Write 3 different ways of safely unwrapping and printing the value of `userName`
 
 if userName != nil {
     print(userName!)
+    } 
+} else {
+    print("No name.")
 }
 
 ```
@@ -127,7 +130,7 @@ if let newInt = myInt {
 
 ```
 
-## Question 7  🤯
+## Question 7  √
 
 Given an optional tuple of optional Ints, write code to safely unwrap the tuple and calculate the sum of its contents that aren't nil.
 
@@ -137,6 +140,25 @@ var scores: (Int?, Int?, Int?)?
 var testCaseOne = (4, nil, 7)
 var testCaseTwo = (nil, nil, 9)
 var testCaseThree = (5, 10, 24)
+
+let a = testCaseOne.0 ?? 0
+let b = testCaseOne.1 ?? 0
+let c = testCaseOne.2 ?? 0
+let sum1 = a + b + c
+print(sum1)
+
+let d = testCaseTwo.0 ?? 0
+let e = testCaseTwo.1 ?? 0
+let f = testCaseTwo.2 ?? 0
+let sum2 = d + e + f
+print(sum2)
+
+let g = testCaseThree.0 ?? 0
+let h = testCaseThree.1 ?? 0
+let i = testCaseThree.2 ?? 0
+let sum3 = g + h + i
+print(sum3)
+
 ```
 
 
