@@ -236,7 +236,7 @@ if Bool.random() {
 ```
 
 
-## Question 12
+## Question 12 √
 
 Given the code below print the sum of each non-nil element in `myTuple`.
 
@@ -244,11 +244,18 @@ Given the code below print the sum of each non-nil element in `myTuple`.
 var myTuple: (Int?, Int?, Int?, Int?)
 
 if Bool.random() {
- myTuple.0 = 5
- myTuple.2 = 14
+    myTuple.0 = 5
+    myTuple.2 = 14
+    if let tup1 = myTuple.0, let tup2 = myTuple.2 {
+        print(tup1 + tup2)
+    }
+    
 } else {
- myTuple.1 = 9
- myTuple.3 = 10
+    myTuple.1 = 9
+    myTuple.3 = 10
+    if let tup1 = myTuple.1, let tup2 = myTuple.3 {
+        print(tup1 + tup2)
+    }
 }
 ```
 
