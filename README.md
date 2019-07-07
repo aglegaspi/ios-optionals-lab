@@ -260,7 +260,7 @@ if Bool.random() {
 ```
 
 
-## Question 13
+## Question 13 √
 
 Given the helper functions and code below, check to see if your `evolutionaryStone` is able to evolve your pokemon.  The table below shows the appropriate matches of pokemon to stone:
 
@@ -311,6 +311,30 @@ let pokemon: String?
 var evolutionaryStone: String?
 pokemon = starterPokemon()
 evolutionaryStone = eStone()
+
+if let pokemon = pokemon, let evolutionaryStone = evolutionaryStone {
+    print(pokemon)
+    print(evolutionaryStone)
+   
+    if pokemon == "Pikachu" && evolutionaryStone == "Electic" {
+        print("💫 Pokemon Evolved")
+    }
+    
+    if pokemon == "Bulbasaur" && evolutionaryStone == "Grass" {
+            print("💫 Pokemon Evolved")
+    }
+    
+    if pokemon == "Charmander" && evolutionaryStone == "Fire" {
+        print("💫 Pokemon Evolved")
+    }
+    
+    if pokemon == "Squirtle" && evolutionaryStone == "Water" {
+        print("💫 Pokemon Evolved")
+    } else {
+    print("Sorry Your pokemon will not evolve at this time!")
+}
+
+}
 ```
 
 
