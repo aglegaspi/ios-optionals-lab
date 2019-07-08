@@ -189,6 +189,7 @@ let myInt: Int?
 if Bool.random() {
     myInt = 5
     if let myInt = myInt {
+        print(myInt)
         print(myInt * myInt)
     }
 }
@@ -338,15 +339,22 @@ if let pokemon = pokemon, let evolutionaryStone = evolutionaryStone {
 ```
 
 
-## Question 14
+## Question 14 √
 
 Given an optional int `numberOfPeople`, write code that unwraps and prints it **only if it is even**. Try using optional binding with a condition.
 
 ```swift
-var numberOfPeople: Int?
+
+var numberOfPeople14: Int?
 
 if Bool.random() {
- numberOfPeople = 108
+    numberOfPeople14 = 108
+    if let evenNumPpl = numberOfPeople14 {
+        
+        if evenNumPpl % 2 == 0 {
+        print("\(evenNumPpl) is even!")
+        }
+    }
 }
 ```
 
@@ -419,11 +427,15 @@ Given an optional array of optional tuples of optional UInt8s,
 `let possibleColors: [(r: UInt8?, g: UInt8?, b: UInt8?)?]? = [(128, 21, 7), (0, 0, 0), nil, (nil, 25, 82), (255, 255, 255), nil, (200, 100, nil), (120, nil, 23), (0, 255, 106), (nil, nil, nil), nil, (100, 100, 200)]`
 
 
-## Question 21
+## Question 21 ∆
 
 Consider the following nested optional. It corresponds to a number inside a box inside a box inside a box.
 
 - Fully force unwrap and print number.
+```swift
+let number: Int??? = 10
+print(number!!!)
+```
 
 - Optionally bind and print number.
 
@@ -434,10 +446,41 @@ Consider the following nested optional. It corresponds to a number inside a box 
 
 Given an Array of Optional Strings, write code that concatenates all non-nil values together except for strings with 3 or more vowels.
 
-`let monkeyingAround = ["orangutan", "apes",nil, "monkeys", "gorillas", "lemurs", nil]`
+`let monkeyingAround = ["orangutan", "apes", nil, "monkeys", "gorillas", "lemurs", nil]`
 
 output: `"apesmonkeyslemurs"`
 
+```swift 
+
+// declare the const for vowels, variables for counter and output
+let vowels = ["a","e","i","o","u"]
+var counter = 0
+var output = ""
+
+// for loop through the array
+for value in monkeyingAround {
+
+    // optional bind the value
+    if let string = value {
+        
+    // loop through string to see WHERE it has vowels and increment counter
+        for letter in string where vowels.contains(String(letter)) {
+            counter += 1
+        }
+    
+    // if the counter less than 3 concatenate the string to the output
+        if counter < 3 {
+            output += string
+        }
+    // re-initialize the counter
+        counter = 0
+    }
+}
+// print output
+print(output)
+
+
+```
 
 ## Question 23
 
