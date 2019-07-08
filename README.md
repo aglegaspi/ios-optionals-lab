@@ -392,9 +392,24 @@ print(finalProduct)
 Given the array `poorlyFormattedCityNames`, create a new array with the city names capitalized and any nil values removed.
 
 ```swift
-let poorlyFormattedCityNames: [String?] = ["new york", "BOSTON", nil, "chicago", nil, "los angeles", nil, "Dallas",]
 
-Output: ["New York", "Boston", "Chicago", "Los Angeles", "Dallas"]
+let poorlyFormattedCityNames: [String?] = ["new york", "BOSTON", nil, "chicago", nil, "los angeles", nil, "Dallas",]
+var cFCN: [String] = []
+
+for city in poorlyFormattedCityNames {
+    
+    if let city = city {
+        if city != nil {
+            cFCN.append(city)
+        }
+        
+        for (index,value) in cFCN.enumerated() {
+                cFCN[index] = value.capitalized
+        }
+    }
+}
+print(cFCN)
+
 ```
 
 
