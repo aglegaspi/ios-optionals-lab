@@ -359,16 +359,31 @@ if Bool.random() {
 ```
 
 
-## Question 15
+## Question 15 √
 
 Given the array of optional Ints `someNumbers`, write code to find the product of the array not including any nil values.
 
 ```swift
+
 var someNumbers: [Int?] = []
+var result15: [Int] = []
 
 for i in 0..<20 {
     someNumbers.append(Bool.random() ? i : nil)
 }
+
+for n in someNumbers {
+    var product = 0
+    
+    if n != nil {
+        product = n ?? 0
+        result15.append(product)
+    }
+}
+
+let finalProduct = result15.reduce(1,*)
+print(finalProduct)
+
 ```
 
 
