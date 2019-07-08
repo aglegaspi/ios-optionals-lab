@@ -135,29 +135,32 @@ if let newInt = myInt {
 Given an optional tuple of optional Ints, write code to safely unwrap the tuple and calculate the sum of its contents that aren't nil.
 
 ```swift
-var scores: (Int?, Int?, Int?)?
 
-var testCaseOne = (4, nil, 7)
-var testCaseTwo = (nil, nil, 9)
-var testCaseThree = (5, 10, 24)
+let testCaseOne: (Int?, Int?, Int?)? = (4, nil, 7)
+let testCaseTwo: (Int?, Int?, Int?)? = (nil, nil, 9)
+let testCaseThree: (Int?, Int?, Int?)? = (5, 10, 24)
+    
+let testCases = [testCaseOne, testCaseTwo, testCaseThree]
 
-let a = testCaseOne.0 ?? 0
-let b = testCaseOne.1 ?? 0
-let c = testCaseOne.2 ?? 0
-let sum1 = a + b + c
-print(sum1)
-
-let d = testCaseTwo.0 ?? 0
-let e = testCaseTwo.1 ?? 0
-let f = testCaseTwo.2 ?? 0
-let sum2 = d + e + f
-print(sum2)
-
-let g = testCaseThree.0 ?? 0
-let h = testCaseThree.1 ?? 0
-let i = testCaseThree.2 ?? 0
-let sum3 = g + h + i
-print(sum3)
+for testCase in testCases {
+    var sum = Int()
+    
+    if let testCaseUnWrapped = testCase {
+        
+            if let num1 = testCaseUnWrapped.0 {
+                sum += num1
+            }
+            
+            if let num2 = testCaseUnWrapped.1 {
+                sum += num2
+            }
+            
+            if let num3 = testCaseUnWrapped.2 {
+                sum += num3
+            }
+    }
+    print("The sum is \(sum)")
+}
 
 ```
 
@@ -242,22 +245,25 @@ if Bool.random() {
 Given the code below print the sum of each non-nil element in `myTuple`.
 
  ```swift
+ 
 var myTuple: (Int?, Int?, Int?, Int?)
 
 if Bool.random() {
     myTuple.0 = 5
     myTuple.2 = 14
-    if let tup1 = myTuple.0, let tup2 = myTuple.2 {
-        print(tup1 + tup2)
-    }
     
 } else {
     myTuple.1 = 9
     myTuple.3 = 10
-    if let tup1 = myTuple.1, let tup2 = myTuple.3 {
-        print(tup1 + tup2)
-    }
 }
+
+let a = myTuple.0 ?? 0
+let b = myTuple.1 ?? 0
+let c = myTuple.2 ?? 0
+let d = myTuple.3 ?? 0
+let sum = a + b + c + d
+print(sum)
+
 ```
 
 
@@ -314,6 +320,7 @@ pokemon = starterPokemon()
 evolutionaryStone = eStone()
 
 if let pokemon = pokemon, let evolutionaryStone = evolutionaryStone {
+
     print(pokemon)
     print(evolutionaryStone)
    
@@ -331,6 +338,7 @@ if let pokemon = pokemon, let evolutionaryStone = evolutionaryStone {
     
     if pokemon == "Squirtle" && evolutionaryStone == "Water" {
         print("💫 Pokemon Evolved")
+        
     } else {
     print("Sorry Your pokemon will not evolve at this time!")
 }
@@ -387,7 +395,7 @@ print(finalProduct)
 ```
 
 
-## Question 16
+## Question 16  √
 
 Given the array `poorlyFormattedCityNames`, create a new array with the city names capitalized and any nil values removed.
 
@@ -413,16 +421,29 @@ print(cFCN)
 ```
 
 
-## Question 17
+## Question 17 √
 
 Given a random array of optional numbers, create a new array of all the even numbers that aren't nil.
 
 ```swift
-var aBunchOfNumbers: [Int?] = []
 
+var aBunchOfNumbers: [Int?] = []
 for _ in 0..<20 {
- aBunchOfNumbers.append(Bool.random() ? Int(arc4random_uniform(102)) : nil)
+    aBunchOfNumbers.append(Bool.random() ? Int(arc4random_uniform(102)) : nil)
 }
+
+var evenNumbers: [Int] = []
+
+for number in aBunchOfNumbers {
+    
+    if let number = number {
+        if number != nil && number % 2 == 0 {
+            evenNumbers.append(number)
+        }
+    }
+}
+print(evenNumbers)
+
 ```
 
 
@@ -430,8 +451,23 @@ for _ in 0..<20 {
 
 Given the following array of zip codes as strings, write code that turns them into an array of Ints.
 
-`let zipCodeStrings = ["11377", "11101", "11373", "10014", "10003", "11223"]`
+```swift
 
+
+let zipCodeStrings = ["11377", "11101", "11373", "10014", "10003", "11223"]
+var zipCodeInts: [Int] = []
+
+for zipString in zipCodeStrings {
+
+    if let converter = Int(zipString) {
+        zipCodeInts.append(converter)
+    }
+    
+}
+print(zipCodeInts)
+
+
+```
 
 ## Question 19
 
@@ -444,6 +480,43 @@ Some students were asked some questions about their favorite foods and colors an
 - Create a new array of type `[(String, String, String)]` that contains the students with both favorite colors and foods.
 
 `let studentInfo: [(String, String?, String?)] = [("Bill", "Burgers", "Blue"), ("Rita", nil, "Red"), ("Peter", "Pizza", "Purple"), ("Sarah", "Sandwiches", nil), ("Jeff", nil, nil), ("Lucy", "Leftovers", "Lilac"), ("Mike", "Meat", "Mauve"), ("Gemma", nil, "Green")]`
+
+```swift 
+
+let studentInfo: [(String, String?, String?)] =
+    [("Bill", "Burgers", "Blue"),
+     ("Rita", nil, "Red"),
+     ("Peter", "Pizza", "Purple"),
+     ("Sarah", "Sandwiches", nil),
+     ("Jeff", nil, nil),
+     ("Lucy", "Leftovers", "Lilac"),
+     ("Mike", "Meat", "Mauve"),
+     ("Gemma", nil, "Green")]
+
+var studentWFavFoodnColors: [(String, String, String, String)] = []
+var studentsWFFAC = [String]()
+
+for student in studentInfo {
+    
+    if student.2 == nil && student.1 == nil {
+        print("\(student.0) has no favorite food or color")
+    } else if student.2 == nil {
+        print("\(student.0) has no favorite color")
+    }
+    
+    if let _ = student.1, let _ = student.2 {
+        let studentName = student.0
+        studentsWFFAC.append(studentName)
+    }
+
+}
+let studentsWFFACTuple = ("\(studentsWFFAC[0])","\(studentsWFFAC[1])","\(studentsWFFAC[2])","\(studentsWFFAC[3])")
+
+studentWFavFoodnColors.append(studentsWFFACTuple)
+
+print(studentWFavFoodnColors)
+
+```
 
 
 ## Question 20
