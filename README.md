@@ -447,7 +447,7 @@ print(evenNumbers)
 ```
 
 
-## Question 18
+## Question 18 √
 
 Given the following array of zip codes as strings, write code that turns them into an array of Ints.
 
@@ -469,7 +469,7 @@ print(zipCodeInts)
 
 ```
 
-## Question 19
+## Question 19 √
 
 Some students were asked some questions about their favorite foods and colors and the answers were stored in an array `studentInfo`.
 
@@ -519,7 +519,7 @@ print(studentWFavFoodnColors)
 ```
 
 
-## Question 20
+## Question 20 √
 
 Given an optional array of optional tuples of optional UInt8s,
 
@@ -565,19 +565,28 @@ var counter = 0
 ```
 
 
-## Question 21 ∆
+## Question 21 √
 
 Consider the following nested optional. It corresponds to a number inside a box inside a box inside a box.
 
 - Fully force unwrap and print number.
 ```swift
+
 let number: Int??? = 10
 print(number!!!)
+
 ```
 
 - Optionally bind and print number.
+```swift
 
-`let number: Int??? = 10`
+let numberNested: Int??? = 10
+
+if let number1 = numberNested, let number2 = number1, let number3 = number2 {
+print(number3)
+}
+
+```
 
 
 ## Question 22
@@ -590,33 +599,30 @@ output: `"apesmonkeyslemurs"`
 
 ```swift 
 
-// declare the const for vowels, variables for counter and output
+let monkeyingAround = ["orangutan", "apes", nil, "monkeys", "gorillas", "lemurs", nil]
+
 let vowels = ["a","e","i","o","u"]
 var counter = 0
 var output = ""
 
-// for loop through the array
 for value in monkeyingAround {
-
-    // optional bind the value
+    
     if let string = value {
         
-    // loop through string to see WHERE it has vowels and increment counter
+        // loop through string to see WHERE it has vowels and increment counter
         for letter in string where vowels.contains(String(letter)) {
             counter += 1
         }
-    
-    // if the counter less than 3 concatenate the string to the output
+        
+        // if the counter less than 3 concatenate the string to the output
         if counter < 3 {
             output += string
         }
-    // re-initialize the counter
+
         counter = 0
     }
 }
-// print output
 print(output)
-
 
 ```
 
