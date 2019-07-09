@@ -589,7 +589,7 @@ print(number3)
 ```
 
 
-## Question 22
+## Question 22 √
 
 Given an Array of Optional Strings, write code that concatenates all non-nil values together except for strings with 3 or more vowels.
 
@@ -626,7 +626,7 @@ print(output)
 
 ```
 
-## Question 23
+## Question 23 √
 
 Given the value below, print out all of the non-nil Ints it contains by accessing each of them.
 
