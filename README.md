@@ -529,6 +529,41 @@ Given an optional array of optional tuples of optional UInt8s,
 
 `let possibleColors: [(r: UInt8?, g: UInt8?, b: UInt8?)?]? = [(128, 21, 7), (0, 0, 0), nil, (nil, 25, 82), (255, 255, 255), nil, (200, 100, nil), (120, nil, 23), (0, 255, 106), (nil, nil, nil), nil, (100, 100, 200)]`
 
+```swift
+
+let possibleColors: [(r: UInt8?, g: UInt8?, b: UInt8?)?]? =
+    [(128, 21, 7), (0, 0, 0), nil, (nil, 25, 82), (255, 255, 255), nil, (200, 100, nil), (120, nil, 23), (0, 255, 106), (nil, nil, nil), nil, (100, 100, 200)]
+
+
+if let possibleColors = possibleColors {
+var counter = 0
+    
+    for rgbTuples in possibleColors {
+        
+        if rgbTuples == nil {
+            counter += 1
+        }
+        
+        if let rgbValue = rgbTuples {
+            
+            if let r = rgbValue.r {
+                if let g = rgbValue.g {
+                    if let b = rgbValue.b {
+                        print("3 RGB values (\(r), \(g), \(b))")
+                    }
+                }
+            }
+            
+        } else {
+            counter += 1
+        }
+        
+    }
+    print("Found \(counter) nil values too!")
+}
+
+```
+
 
 ## Question 21 ∆
 
