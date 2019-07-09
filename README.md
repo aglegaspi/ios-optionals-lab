@@ -631,3 +631,44 @@ print(output)
 Given the value below, print out all of the non-nil Ints it contains by accessing each of them.
 
 `var strangeStructure: ([Int]?, [[Int?]], [[Int]?], Int)? = ([1], [[2,3,4],[],[5,nil],[nil]], [nil, [6,7,8],nil,[],[9]], 10)`
+
+```swift 
+
+var strangeStructure: ([Int]?, [[Int?]], [[Int]?], Int)? =
+    ([1],
+     [[2,3,4],[],[5,nil],[nil]],
+     [nil, [6,7,8],nil,[],[9]],
+     10)
+
+var strangeInts: [Int] = []
+
+if let structures = strangeStructure {
+    
+    if let firstStructure = structures.0 {
+        strangeInts.append(firstStructure[0])
+    }
+    
+    for array in structures.1 {
+        for value in array {
+            if let int = value {
+                strangeInts.append(int)
+            }
+        }
+    }
+    
+    for array in structures.2 {
+        if let wierder = array {
+            for tooWierd in wierder {
+                strangeInts.append(tooWierd)
+            }
+        }
+    }
+    
+    strangeInts.append(structures.3)
+    
+}
+
+let result = strangeInts.reduce(0,+)
+print(result)
+
+```
